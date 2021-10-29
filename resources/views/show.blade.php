@@ -3,7 +3,11 @@
 <div class="movie-info border-b border-gray-800">
     <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
         <div class="flex-none">
+            @if ($movieDetails['poster_path'])
             <img src="{{'https://image.tmdb.org/t/p/w500'.$movieDetails['poster_path']}}" alt="poster" class="rounded w-64 md:w-96" >
+                        @else
+                        <img src="https://via.placeholder.com/728x1000" alt="poster" class="rounded w-64 md:w-96">
+                        @endif
         </div>
         <div class="md:ml-24">
            <h2 class="text-4xl font-semibold">
@@ -40,7 +44,7 @@
             </div>
             @if ($movieDetails['videos']['results']>0)
             <div class="mt-12">
-            <a href="https://youtube.com/watch?v={{$movieDetails['videos']['results'][0]['key']}}" class="flex inline-flex item-center bg-yellow-600 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-yellow-700 transition ease-in-out decoration-150">
+            <a @if($movieDetails['videos']['results']!=null) href="https://youtube.com/watch?v={{$movieDetails['videos']['results'][0]['key']}}" @else href="#"@endif class="flex inline-flex item-center bg-yellow-600 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-yellow-700 transition ease-in-out decoration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 fill-current" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                 <span class="ml-2">Play Trailar</span>
             </a>
