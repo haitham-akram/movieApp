@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +8,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body class="font-sans bg-gray-900 text-white">
     <nav class="border-b border-gray-800">
       <div class="container mx-auto  px-4 flex flex-col md:flex-row items-center justify-between py-6">
