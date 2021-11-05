@@ -4,25 +4,26 @@
     <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
         <div class="flex-none">
             @if ($movieDetails['poster_path'])
-            <img src="{{'https://image.tmdb.org/t/p/w500'.$movieDetails['poster_path']}}" alt="poster" class="rounded w-64 md:w-96" >
+            <img src="{{$movieDetails['poster_path']}}" alt="poster" class="rounded w-64 md:w-96" >
                         @else
                         <img src="https://via.placeholder.com/728x1000" alt="poster" class="rounded w-64 md:w-96">
                         @endif
         </div>
         <div class="md:ml-24">
            <h2 class="text-4xl font-semibold">
-            {{$movieDetails['title']}} ({{\Carbon\Carbon::parse($movieDetails['release_date'])->format('Y')}})
+            {{$movieDetails['title']}} ({{$movieDetails['release_year']}})
            </h2>
            <div class="flex flex-wrap items-center text-gray-400 text-sm mt-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-yellow-500 w-4" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <span class="ml-1">{{$movieDetails['vote_average']*10}}%</span>
+            <span class="ml-1">{{$movieDetails['vote_average']}}</span>
             <span class="mx-2">|</span>
-            <span>{{\Carbon\Carbon::parse($movieDetails['release_date'])->format('M d, Y')}}</span>
+            <span>{{$movieDetails['release_date']}}</span>
             <span class="mx-2">|</span>
             <span >
-                @foreach ($movieDetails['genres'] as $genre )
+                {{-- @foreach ($movieDetails['genres'] as $genre )
                 {{$genre['name']}}@if (!$loop->last),@endif
-               @endforeach
+               @endforeach --}}
+               {{$movieDetails['genres']}}
             </span>
             </div>
             <div class="mt-12">
@@ -32,13 +33,12 @@
             <div class="mt-12">
                 <h4 class="text-white font-semibold">Featured Cast</h4>
                 <div class="flex mt-4">
-                    @foreach ($movieDetails['credits']['crew'] as $crew )
-                    @if ($loop->index < 2)
+                    @foreach ($movieDetails['crew'] as $crew )
                     <div class="mr-8">
                         <div>{{$crew['name']}}</div>
                         <div class="text-sm text-gray-400"> {{$crew['job'] }}</div>
                     </div>
-                    @endif
+
                     @endforeach
                 </div>
             </div>
@@ -87,8 +87,7 @@
         <h2 class="text-4xl font-semibold">Cast</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 ">
             {{-- card --}}
-            @foreach ($movieDetails['credits']['cast'] as $cast)
-            @if ($loop->index < 5)
+            @foreach ($movieDetails['cast'] as $cast)
             <div class="mt-8">
                 <a href="#">
                     <img src="{{'https://image.tmdb.org/t/p/w300'.$cast['profile_path']}}" alt="actor" class="rounded hover:opacity-75 transition ease-in-out duration-150">
@@ -100,7 +99,6 @@
                     </div>
                 </div>
             </div>
-            @endif
             @endforeach
 
 
@@ -112,8 +110,8 @@
     <div class="container mx-auto px-4 py-16">
         <h2 class="text-4xl font-semibold">Images</h2>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-            @foreach ($movieDetails['images']['backdrops'] as $img)
-            @if ($loop->index < 9)
+            @foreach ($movieDetails['images'] as $img)
+
             {{-- card --}}
             <div class="mt-8">
                 <a
@@ -126,7 +124,6 @@
                     <img src="{{'https://image.tmdb.org/t/p/w500'.$img['file_path']}}" alt="img" class="rounded hover:opacity-75 transition ease-in-out duration-150">
                 </a>
             </div>
-            @endif
             @endforeach
          </div>
          <div
