@@ -47,7 +47,7 @@
             <div class="mt-12">
             <button
             @click="isOpen = true"
-            class="flex inline-flex item-center bg-yellow-600 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-yellow-700 transition ease-in-out decoration-150">
+            class="inline-flex item-center bg-yellow-600 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-yellow-700 transition ease-in-out decoration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 fill-current" viewBox="0 0 24 24">
                     <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                 <span class="ml-2">Play Trailar</span>
@@ -89,11 +89,11 @@
             {{-- card --}}
             @foreach ($movieDetails['cast'] as $cast)
             <div class="mt-8">
-                <a href="#">
+                <a href="{{route('actors.show',$cast['id'])}}">
                     <img src="{{'https://image.tmdb.org/t/p/w300'.$cast['profile_path']}}" alt="actor" class="rounded hover:opacity-75 transition ease-in-out duration-150">
                 </a>
                 <div class="mt-2">
-                    <a href="#" class="text-lg mt-2 hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150"> {{$cast['name'] }}</a>
+                    <a href="{{route('actors.show',$cast['id'])}}" class="text-lg mt-2 hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150"> {{$cast['name'] }}</a>
                     <div class="flex items-center text-gray-400 text-sm mt-1">
                         <span class="ml-1"> {{$cast['character']}} </span>
                     </div>

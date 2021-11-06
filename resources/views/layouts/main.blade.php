@@ -23,10 +23,10 @@
                 <a href="{{route('movies.index')}}" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">Movies</a>
             </li>
             <li class="md:ml-6 mt-3 md:mt-0">
-                <a href="#" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">TV Shows</a>
+                <a href="{{route('tv.index')}}" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">TV Shows</a>
             </li>
             <li class="md:ml-6 mt-3 md:mt-0">
-                <a href="#" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">Actors</a>
+                <a href="{{route('actors.index')}}" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">Actors</a>
             </li>
         </ul>
         <div class="flex flex-col md:flex-row items-center">
@@ -41,6 +41,7 @@
     </nav>
 @yield('content')
 @livewireScripts
+@yield('scripts')
 </body>
 
 </html>
