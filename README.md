@@ -1,6 +1,6 @@
 ## About MovieApp 🍿🎬
 
-MovieApp is a web application built by php Laravel Framework. MovieApp is a website to explore and search movies and series. 
+MovieApp is a web application built by php Laravel Framework. MovieApp is a website to explore and search movies and TV Shows. 
 ### Stakeholders
 - guest
 
