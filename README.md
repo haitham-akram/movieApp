@@ -14,8 +14,8 @@ MovieApp is a web application built by php Laravel Framework. MovieApp is a webs
 - Show Popular Actor.
 - Show information about the Movie, TV show or Actor
 - Show the teaser for movie or TV show.
-- show poster or images for movie or TV Show.
-- show Cast for Movie or TV Show. 
+- Show poster or images for movie or TV Show.
+- Show Cast for Movie or TV Show. 
      
 ## How To Install MovieApp 
 
